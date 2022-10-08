@@ -1,4 +1,11 @@
 let allElement = document.querySelectorAll('.letter');
+// let allBtns = document.querySelectorAll('.btn');
+
+// for(let bt of allBtns){
+//     bt.addEventListener('click',function(){
+//         console.log(this);
+//     })
+// }
 let wordsList = ['HURRY','LOOSE','THEME','BLOCK','BRAVE','WORDS','HAIRS','KILLS','WHERE','THERE','COLOR','CODER'];
 
 const randWord = wordsList[Math.floor(Math.random() * wordsList.length)];
@@ -18,9 +25,8 @@ for(let b of allElement){
         }
     })
     b.addEventListener('keyup',function(ev){
-        console.log(this.value);
-        // console.log(this.parentElement.prevElementSibling.firstElementChild);
-        if(this.parentElement.parentElement.lastElementChild == this.parentElement & ev.code=='Enter'){
+        this.classList.add('letterOutline');
+        if(this.parentElement.parentElement.lastElementChild == this.parentElement & this.value!="" & ev.code=='Enter'){
             // Match the word if in array
             let found=[false,false,false,false,false];
             for(let i=0;i<5;i++){
@@ -38,22 +44,27 @@ for(let b of allElement){
                     }
                 }
             }
+            let countTrue =0;
             for(let i=0;i<5;i++){
                 if(!found[i]){
                     this.parentElement.parentElement.children[i].firstElementChild.classList.add('wrong');
                 }
+                else{
+                    countTrue++;
+                }
             }
             // Going to next line
-            this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
+            if(countTrue<5){
+                this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
+            }
         }
         else if((ev.keyCode >= 97 & ev.keyCode<=122) | (ev.keyCode<=90 & ev.keyCode>=65)){
-            if(this.parentElement.parentElement.lastElementChild != this.parentElement){
+            if(this.parentElement.parentElement.lastElementChild != this.parentElement & this.value!=""){
                 this.parentElement.nextElementSibling.firstElementChild.focus();
             }
         }
         else{
             this.value="";
         }
-
     })
 }

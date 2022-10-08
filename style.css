@@ -1,14 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    padding: 1rem 1rem 1rem 1rem;
+    flex-direction: row;
+    font-size: 2rem;
+    font-family: 'Patua One', cursive;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    border-bottom: 1.5px solid rgb(215, 215, 215);
+}
+.inputMat{
+    display: block;
+    width: 70vw;
+    margin: auto;
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; 
+}
+table{
+    margin: auto;
+}
+.letter{
+    height: 3.7rem;
+    width: 3.7rem;
+    margin: auto;
+    text-transform: uppercase;
+    background: transparent;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid rgb(205, 205, 205);
+}
+.letter:focus{
+    caret-color: transparent;
+    outline: 2px solid black;
+}
+.letterOutline{
+    border: 2px solid rgb(137, 137, 137);
+}
 .correct{
-    background-color: green;
+    color: white;
+    border: 2px solid rgb(110, 198, 110);
+    background-color: rgb(92, 185, 92);
 }
 .present{
-    background-color: yellow;
+    color: white;
+    border: 2px solid rgb(224, 203, 69);
+    background-color: rgb(224, 203, 69);
 }
 .wrong{
     color: white;
-    background-color: black;
+    border: 2px solid rgb(115, 120, 126);
+    background-color: rgb(115, 120, 126);
 }
 td{
-    background-color: rgb(197, 235, 235);
-    box-shadow: 0 1px 2px rgba(2,30,84,1);
+    /* box-shadow: 0 1px 2px rgba(2,30,84,1); */
 }
