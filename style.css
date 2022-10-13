@@ -12,6 +12,9 @@ header{
     margin-bottom: 4rem;
     border-bottom: 1.5px solid rgb(215, 215, 215);
 }
+.wordle{
+    margin: auto;
+}
 .inputMat{
     display: block;
     margin: auto;
@@ -37,7 +40,7 @@ table{
 .letter:focus{
     caret-color: transparent;
     outline: 2px solid black;
-    animation: keyEnter 0.3s;
+    animation: keyEnter 0.2s;
 }
 .letterOutline{
     border: 2px solid rgb(137, 137, 137);
@@ -46,7 +49,7 @@ table{
     height: 3rem;
     width: 3rem;
     margin: auto;
-    background: rgb(225, 223, 223);
+    background: rgb(241, 238, 238);
     font-size: 1.8rem;
     font-weight: 800;
     text-align: center;
@@ -56,22 +59,40 @@ table{
 
 .correct{
     color: white;
-    border: 2px solid rgb(110, 198, 110);
+    border: 2px solid rgb(92, 185, 92);
     background-color: rgb(92, 185, 92);
+    /* animation: flipScale 1s; */
 }
 .present{
     color: white;
     border: 2px solid rgb(224, 203, 69);
     background-color: rgb(224, 203, 69);
+    /* animation: flipScale 1s; */
 }
 .wrong{
     color: white;
     border: 2px solid rgb(115, 120, 126);
     background-color: rgb(115, 120, 126);
+    /* animation: flipScale 1s; */
 }
 
 @keyframes keyEnter {
     0% {transform: scale(1);}
-    50% {transform: scale(1.07);}
+    50% {transform: scale(1.08);}
     100% {transform: scale(1);}
 }
+/* @keyframes flipScale{
+    0% {
+        transform: rotate(0deg);
+        filter: opacity(0);
+    }
+    25% {
+        transform:  rotate(90deg);
+        filter: opacity(0.25);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: opacity(1);
+    }
+} */
+
