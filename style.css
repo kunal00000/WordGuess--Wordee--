@@ -2,6 +2,9 @@
 margin: 0;
 padding: 0;
 }
+body{
+    background-color: rgb(252,252,252);
+}
 header{
     display: flex;
     padding: 1rem 1rem 1rem 1rem;
@@ -17,11 +20,15 @@ header{
 }
 .inputMat{
     display: block;
+    width: fit-content;
     margin: auto;
-    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; 
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(rgb(251, 251, 251),rgb(255,255,255)); 
+    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
+    border-radius: 0px 0px 6px 6px;
+    margin-bottom: 30px;
 }
 table{
-    /* transform: scale(0.9); */
     height: auto;
     width: auto;
     margin: auto;
@@ -61,19 +68,19 @@ table{
     color: white;
     border: 2px solid rgb(92, 185, 92);
     background-color: rgb(92, 185, 92);
-    /* animation: flipScale 1s; */
+    animation: flipScale 1s;
 }
 .present{
     color: white;
     border: 2px solid rgb(224, 203, 69);
     background-color: rgb(224, 203, 69);
-    /* animation: flipScale 1s; */
+    animation: flipScale 1s;
 }
 .wrong{
     color: white;
     border: 2px solid rgb(115, 120, 126);
     background-color: rgb(115, 120, 126);
-    /* animation: flipScale 1s; */
+    animation: flipScale 1s;
 }
 
 @keyframes keyEnter {
@@ -81,18 +88,33 @@ table{
     50% {transform: scale(1.08);}
     100% {transform: scale(1);}
 }
-/* @keyframes flipScale{
+@keyframes flipScale{
     0% {
-        transform: rotate(0deg);
-        filter: opacity(0);
+        transform: scale(1);
+        filter: opacity(0.5);
     }
     25% {
-        transform:  rotate(90deg);
-        filter: opacity(0.25);
-    }
-    100% {
-        transform: rotate(360deg);
+        transform: scale(1.13) ;
         filter: opacity(1);
     }
-} */
-
+    67%{
+        transform: rotateX(45deg);
+    }
+    75% {
+        transform: scale(1.13);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.a ,.d{
+    position: absolute;
+}
+.a{
+    top: 35%;
+    right: 10%;
+}
+.d{
+    top: 35%;
+    left: 10%;
+}
