@@ -1,11 +1,6 @@
 let allElement = document.querySelectorAll('.letter');
 let allBtns = document.querySelectorAll('.btn');
 
-// for(let bt of allBtns){
-//     bt.addEventListener('click',function(){
-//         console.log(this);
-//     })
-// }
 let wordsList = ['HURRY','LOOSE','THEME','BLOCK','BRAVE','WORDS','HAIRS','KILLS','WHERE','THERE','COLOR','CODER','ABUSE','ADULT','AGENT','ANGER','APPLE','AWARD','BASIS','BEACH','BIRTH','BLOCK','BLOOD','BOARD','BRAIN','BREAD','BREAK','BROWN','BUYER','CAUSE','CHAIN',
 'CHAIR','CHEST','CHIEF','CHILD','CHINA','CLAIM','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CRIME','CROSS','CROWD','CROWN','CYCLE','DANCE','DEATH','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','DRINK','DRIVE','EARTH','ENEMY','ENTRY','ERROR','EVENT',
 'FAITH','FAULT','FIELD','FIGHT','FINAL','FLOOR','FOCUS','FORCE','FRAME','FRANK','FRONT','FRUIT','GLASS','GRANT','GRASS','GREEN','GROUP','GUIDE','HEART','HENRY','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','JAPAN','JONES','KNIFE','LAURA','LAYER','LEVEL','LEWIS',
@@ -72,7 +67,13 @@ for(let b of allElement){
             if(countTrue<5){
                 this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
             }
+            else if(countTrue==5){
+                setTimeout(() => {
+                    window.alert('You Win!');
+                }, 1500);
+            }
         }
+        // Going to next input box after keydown
         else if((ev.keyCode >= 97 & ev.keyCode<=122) | (ev.keyCode<=90 & ev.keyCode>=65)){
             if(this.parentElement.parentElement.lastElementChild != this.parentElement & this.value!=""){
                 this.parentElement.nextElementSibling.firstElementChild.focus();
