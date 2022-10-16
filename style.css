@@ -5,11 +5,6 @@ padding: 0;
 body{
     background-color: rgb(252,252,252);
 }
-header img{
-    position: absolute;
-    top: 1.5%;
-    left: 44%;
-}
 .imgw{
     display: block;
     border: 7px double black;
@@ -19,12 +14,8 @@ header img{
     left: 1.5%;
 }
 header{
-    display: flex;
-    padding: 1rem 1rem 1rem 1rem;
-    flex-direction: row;
-    font-size: 2rem;
-    font-family: 'Patua One', cursive;
-    justify-content: space-between;
+    display: block;
+    padding: 1.5% 45% 1% 45%;
     margin-bottom: 2.4rem;
     border-bottom: 1.5px solid rgb(215, 215, 215);
 }
@@ -132,4 +123,34 @@ table{
 .d{
     top: 35%;
     left: 10%;
+}
+@media only screen and (min-width: 768px){
+    .mobview{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .container{
+        display: none;
+    }
+    .blob,.codey{
+        display: block;
+        margin: auto;
+    }
+    .blob{
+        padding-top: 35%;
+    }
+    .codey{
+        position: absolute;
+        top: 25%;
+    }
+    .mobview{
+        margin: 15% auto;
+    }
+    .mobview p{
+        text-align: center;       
+        margin: 20% auto;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 }
