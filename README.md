@@ -3,7 +3,7 @@
 View WebApp here:-
 https://wordee.netlify.app/
 
-*Guess the Wordee in 6 tries.*
+#Guess the Wordee in 6 tries.
 
 The color of the tiles will change to show how close your guess was to the word.
 
