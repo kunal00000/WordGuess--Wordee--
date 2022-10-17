@@ -29,6 +29,7 @@ for(let b of allElement){
         }
     })
     b.addEventListener('keydown',function(ev){
+        console.log(ev);
         if(this.parentElement.parentElement.lastElementChild == this.parentElement & this.value!="" & ev.code=='Enter'){
             // Match the word if in array
             let found=[false,false,false,false,false];
@@ -59,7 +60,7 @@ for(let b of allElement){
                     let y = this.parentElement.parentElement.children[i].firstElementChild.value.toUpperCase().charCodeAt();
                     allBtns[y-65].classList.add('wrong');
                 }
-                else{
+                else if(found[i] && this.parentElement.parentElement.children[i].firstElementChild.classList.contains('correct')){
                     countTrue++;
                 }
             }
@@ -72,9 +73,10 @@ for(let b of allElement){
                     window.alert('You Win!');
                 }, 1500);
             }
+            
         }
         // Going to next input box after keydown
-        else if((ev.keyCode >= 97 & ev.keyCode<=122) | (ev.keyCode<=90 & ev.keyCode>=65)){
+        else if(ev.code >= "KeyA" & ev.code<="KeyZ"){
             if(this.parentElement.parentElement.lastElementChild != this.parentElement & this.value!=""){
                 this.parentElement.nextElementSibling.firstElementChild.focus();
             }
