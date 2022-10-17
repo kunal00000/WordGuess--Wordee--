@@ -29,7 +29,6 @@ for(let b of allElement){
         }
     })
     b.addEventListener('keydown',function(ev){
-        console.log(ev);
         if(this.parentElement.parentElement.lastElementChild == this.parentElement & this.value!="" & (ev.code=='Enter' | ev.keyCode==13 )){
             // Match the word if in array
             let found=[false,false,false,false,false];
@@ -65,7 +64,7 @@ for(let b of allElement){
                 }
             }
             // Going to next line
-            if(countTrue<5){
+            if(countTrue<5 & this != allElement[29]){
                 this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
             }
             else if(countTrue==5){
@@ -73,7 +72,11 @@ for(let b of allElement){
                     window.alert('You Win!');
                 }, 1500);
             }
-            
+            else if(countTrue<5 & this == allElement[29]){
+                setTimeout(()=>{
+                    window.alert(''+randWord);
+                },1000);
+            }
         }
         // Going to next input box after keydown
         else if(ev.code >= "KeyA" & ev.code<="KeyZ"){
