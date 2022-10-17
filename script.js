@@ -30,7 +30,7 @@ for(let b of allElement){
     })
     b.addEventListener('keydown',function(ev){
         console.log(ev);
-        if(this.parentElement.parentElement.lastElementChild == this.parentElement & this.value!="" & ev.code=='Enter'){
+        if(this.parentElement.parentElement.lastElementChild == this.parentElement & this.value!="" & (ev.code=='Enter' | ev.keyCode==13 )){
             // Match the word if in array
             let found=[false,false,false,false,false];
             for(let i=0;i<5;i++){
