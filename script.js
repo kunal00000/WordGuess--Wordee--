@@ -15,6 +15,35 @@ console.log(randWord); // Getting a random word from the above wordlist
 
 allElement[0].focus(); // Focus on 1st box
 
+fetch('config.json')
+  .then(response => response.json())
+  .then(data => {
+    const apiKey = data.API_KEY;
+    const apiUrl = data.API_URL;
+
+    axios.post(apiUrl, {
+      "prompt": `You are a english dictionary, answer this question in short. What is the meaning of ${randWord} ?`,
+      "max_tokens": 64,
+      "temperature": 0.5,
+      "model": "text-davinci-003",
+      "n": 1 
+    }, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      const meaning = response.data.choices[0].text.trim();
+      console.log(response);
+      console.log(meaning);
+    }).catch(error => {
+      console.log(error);
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
 for (let b of allElement) {
   b.addEventListener("keydown", function (ev) {
     if (ev.code == "Backspace") {
@@ -31,8 +60,6 @@ for (let b of allElement) {
         // If current box is last one in that row then clear that value and  
         this.value = "";
         this.parentElement.previousElementSibling.firstElementChild.focus();
-        console.log(this);
-        console.log(this.parentElement.previousElementSibling.firstElementChild);
       }
       this.classList.remove("letterOutline"); // Outline class removal 
     }
