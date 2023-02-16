@@ -1,4 +1,3 @@
-// require('dotenv').config();
 let allElement = document.querySelectorAll(".letter");
 let allBtns = document.querySelectorAll(".btn");
 let ques = document.querySelector(".rightnav");
@@ -34,16 +33,17 @@ let wordsList = ['HURRY','LOOSE','THEME','BLOCK','BRAVE','WORDS','HAIRS','KILLS'
 
 const randWord = wordsList[Math.floor(Math.random() * wordsList.length)];
 console.log(randWord); // Getting a random word from the above wordlist
+wordHead.innerHTML = randWord;
 
 allElement[0].focus(); // Focus on 1st box
 
 // fetch the meaning of the word (GPT-3 API)
 let fmean = "";
-// fetch('config.json')
-//   .then(response => response.json())
-//   .then(data => {
-    const apiKey = process.env.API_KEY;
-    const apiUrl = process.env.API_URL;
+fetch('config.json')
+  .then(response => response.json())
+  .then(data => {
+    const apiKey = data.API_KEY;
+    const apiUrl = data.API_URL;
 
     axios.post(apiUrl, {
       "prompt": `You are a english dictionary, answer this question in short. What is the meaning of ${randWord} ?`,
@@ -59,15 +59,14 @@ let fmean = "";
     }).then(response => {
       fmean = response.data.choices[0].text.trim();
       console.log(fmean);
-      wordHead.innerHTML = randWord;
       meanText.innerHTML = fmean;
     }).catch(error => {
       console.log(error);
     });
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // });
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
 function ans(isCorrect){  
   setTimeout(() => {
