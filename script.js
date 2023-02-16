@@ -1,5 +1,25 @@
 let allElement = document.querySelectorAll(".letter");
 let allBtns = document.querySelectorAll(".btn");
+let ques = document.querySelector(".rightnav");
+let about = document.querySelector(".about");
+let cross = document.querySelector(".cross");
+let container = document.querySelector(".container");
+let meaning = document.querySelector(".meaning");
+let crossy = document.querySelector(".crossy");
+let rans = document.querySelector(".rans");
+let wans = document.querySelector(".wans");
+let wordHead = document.querySelector(".wordHead");
+let meanText = document.querySelector(".meanText");
+
+// About (How to play)
+ques.addEventListener("click", function(){
+  about.classList.remove("show");
+  container.classList.add("opaque");
+});
+cross.addEventListener("click", function(){
+  about.classList.add("show");
+  container.classList.remove("opaque");
+});
 
 // List of Words
 let wordsList = ['HURRY','LOOSE','THEME','BLOCK','BRAVE','WORDS','HAIRS','KILLS','WHERE','THERE','COLOR','CODER','ABUSE','ADULT','AGENT','ANGER','APPLE','AWARD','BASIS','BEACH','BIRTH','BLOCK','BLOOD','BOARD','BRAIN','BREAD','BREAK','BROWN','BUYER','CAUSE','CHAIN',
@@ -15,10 +35,63 @@ console.log(randWord); // Getting a random word from the above wordlist
 
 allElement[0].focus(); // Focus on 1st box
 
+// fetch the meaning of the word (GPT-3 API)
+let fmean = "";
+fetch('config.json')
+  .then(response => response.json())
+  .then(data => {
+    const apiKey = data.API_KEY;
+    const apiUrl = data.API_URL;
+
+    axios.post(apiUrl, {
+      "prompt": `You are a english dictionary, answer this question in short. What is the meaning of ${randWord} ?`,
+      "max_tokens": 64,
+      "temperature": 0.5,
+      "model": "text-davinci-003",
+      "n": 1 
+    }, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      fmean = response.data.choices[0].text.trim();
+      console.log(fmean);
+      wordHead.innerHTML = randWord;
+      meanText.innerHTML = fmean;
+    }).catch(error => {
+      console.log(error);
+    });
+  })
+  .catch(err => {
+    console.log(err);
+  });
+
+function ans(isCorrect){  
+  setTimeout(() => {
+    if(isCorrect){
+      rans.classList.remove("show");
+    } else{
+      wans.classList.remove("show");
+    }
+    meaning.classList.remove("show");
+    container.classList.add("opaque");
+    crossy.addEventListener("click", () => {
+      meaning.classList.add("show");
+      container.classList.remove("opaque");
+      if (isCorrect) {
+        rans.classList.add("show");
+      } else {
+        wans.classList.add("show");
+      }
+      window.location.reload();
+    });
+  }, 1000); 
+}
+
 for (let b of allElement) {
   b.addEventListener("keydown", function (ev) {
     if (ev.code == "Backspace") {
-        console.log(this.value);
       if (this.value == "") {
         // Clear previous box and move to that box
         this.parentElement.previousElementSibling.firstElementChild.value = "";
@@ -31,8 +104,6 @@ for (let b of allElement) {
         // If current box is last one in that row then clear that value and  
         this.value = "";
         this.parentElement.previousElementSibling.firstElementChild.focus();
-        console.log(this);
-        console.log(this.parentElement.previousElementSibling.firstElementChild);
       }
       this.classList.remove("letterOutline"); // Outline class removal 
     }
@@ -107,19 +178,13 @@ for (let b of allElement) {
           countTrue++;
         }
       }
-      // Going to next line
-      if ((countTrue < 5) & (this != allElement[29])) {
+      
+      if ((countTrue < 5) & (this != allElement[29])) { // Going to next line
         this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
       } else if (countTrue == 5) {
-        setTimeout(() => {
-          window.alert("You Got It Right!!");
-          window.location.reload();
-        }, 1500);
+        ans(true);
       } else if ((countTrue < 5) & (this == allElement[29])) {
-        setTimeout(() => {
-          window.alert("" + randWord);
-          window.location.reload();
-        }, 1000);
+        ans(false);
       }
     }
     // Going to next input box after keydown
