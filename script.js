@@ -35,6 +35,8 @@ console.log(randWord); // Getting a random word from the above wordlist
 
 allElement[0].focus(); // Focus on 1st box
 
+// fetch the meaning of the word (GPT-3 API)
+let fmean = "";
 fetch('config.json')
   .then(response => response.json())
   .then(data => {
@@ -53,8 +55,10 @@ fetch('config.json')
         'Content-Type': 'application/json'
       }
     }).then(response => {
-      const fmean = response.data.choices[0].text.trim();
+      fmean = response.data.choices[0].text.trim();
       console.log(fmean);
+      wordHead.innerHTML = randWord;
+      meanText.innerHTML = fmean;
     }).catch(error => {
       console.log(error);
     });
@@ -63,37 +67,31 @@ fetch('config.json')
     console.log(err);
   });
 
-ans(isCorrect) = function(){
-  if (isCorrect) {
-    console.log("rans.classList");
-    rans.classList.remove("show");
-  }
-  else {
-    console.log("wans.classList");
-    wans.classList.remove("show");
-  }
+function ans(isCorrect){  
   setTimeout(() => {
     if(isCorrect){
-      rans.classList.add("show");
+      rans.classList.remove("show");
     } else{
-      wans.classList.add("show");
+      wans.classList.remove("show");
     }
-    wordHead.innerHTML = randWord;
-    meanText.innerHTML = fmean;
     meaning.classList.remove("show");
     container.classList.add("opaque");
-  }, 2200);
-  crossy.addEventListener("click", () => {
-    meaning.classList.add("show");
-    container.classList.remove("opaque");
-    window.reload();
-  });
+    crossy.addEventListener("click", () => {
+      meaning.classList.add("show");
+      container.classList.remove("opaque");
+      if (isCorrect) {
+        rans.classList.add("show");
+      } else {
+        wans.classList.add("show");
+      }
+      window.location.reload();
+    });
+  }, 1000); 
 }
 
 for (let b of allElement) {
   b.addEventListener("keydown", function (ev) {
     if (ev.code == "Backspace") {
-        console.log(this.value);
       if (this.value == "") {
         // Clear previous box and move to that box
         this.parentElement.previousElementSibling.firstElementChild.value = "";

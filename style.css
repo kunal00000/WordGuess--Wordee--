@@ -1,216 +1,244 @@
-*{
-margin: 0;
-padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    background-color: rgb(252,252,252);
+body {
+  background-color: rgb(252, 252, 252);
 }
-.meaning, .imgw, .cross, .crossy, .rightnav, .smiley, .about, .a, .d{
-    position: absolute;
+.meaning,
+.imgw,
+.cross,
+.crossy,
+.rightnav,
+.smiley,
+.about,
+.a,
+.d {
+  position: absolute;
 }
-.meaning{
-    display: block;
-    top: 10%;
-    left: 35%;
-    right: 28%;
-    background-color: white;
-    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
-    border-radius: 0px 0px 6px 6px;
-    z-index: 10;
-    width: 30%;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    color: rgb(101, 105, 109);
+.meaning {
+  display: block;
+  top: 10%;
+  left: 35%;
+  right: 28%;
+  background-color: white;
+  box-shadow: 0px 15px 15px -4px rgb(210, 210, 210);
+  border-radius: 0px 0px 6px 6px;
+  z-index: 10;
+  width: 30%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: rgb(101, 105, 109);
+  animation: modal 0.6s;
 }
-p{
-    width: 70%;
-    margin: auto;
-    padding: auto;
-    margin-top: 5%;
+p {
+  width: 70%;
+  margin: auto;
+  padding: auto;
+  margin-top: 5%;
 }
-.imgw{
-    display: block;
-    border: 4px solid rgb(48, 59, 49);
-    padding: 3px;
-    border-radius: 50px;
-    top: 1.5%;
-    left: 1.5%;
+.imgw {
+  display: block;
+  border: 4px solid rgb(48, 59, 49);
+  padding: 3px;
+  border-radius: 50px;
+  top: 1.5%;
+  left: 1.5%;
 }
-.cross, .rightnav, .crossy{
-    display: block;
-    top: 1.5%;
-    right: 1.5%;
+.cross,
+.rightnav,
+.crossy {
+  display: block;
+  top: 1.5%;
+  right: 1.5%;
 }
-.smiley{
-    display: block; 
-    top: -7%;
-    left: 33%;
-    right: 35%;
+.smiley {
+  display: block;
+  top: -7%;
+  left: 33%;
+  right: 35%;
 }
-.intro{
-    margin-top: 13%;
+.intro {
+  margin-top: 13%;
 }
-header{
-    display: block;
-    padding: 1.5% 45% 1% 45%;
-    margin-bottom: 2.4rem;
-    border-bottom: 1.5px solid rgb(215, 215, 215);
+header {
+  display: block;
+  padding: 1.5% 45% 1% 45%;
+  margin-bottom: 2.4rem;
+  border-bottom: 1.5px solid rgb(215, 215, 215);
 }
-.wordle{
-    margin: auto;
+.wordle {
+  margin: auto;
 }
-.inputMat{
-    display: block;
-    width: fit-content;
-    margin: auto;
-    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(rgb(251, 251, 251),rgb(255,255,255)); 
-    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
-    border-radius: 0px 0px 6px 6px;
-    margin-bottom: 30px;
+.inputMat {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(rgb(251, 251, 251), rgb(255, 255, 255));
+  box-shadow: 0px 15px 15px -4px rgb(210, 210, 210);
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 30px;
 }
-.about{
-    display: block;
-    top: 10%;
-    left: 28%;
-    right: 28%;
-    background-color: white;
-    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
-    border-radius: 0px 0px 6px 6px;
-    z-index: 10;
+.about {
+  display: block;
+  top: 10%;
+  left: 28%;
+  right: 28%;
+  background-color: white;
+  box-shadow: 0px 15px 15px -4px rgb(210, 210, 210);
+  border-radius: 0px 0px 6px 6px;
+  z-index: 10;
+  animation: modal 0.6s;
 }
-table{
-    height: auto;
-    width: auto;
-    margin: auto;
+table {
+  height: auto;
+  width: auto;
+  margin: auto;
 }
-.letter{
-    height: 3.7rem;
-    width: 3.7rem;
-    margin: auto;
-    text-transform: uppercase;
-    background: transparent;
-    font-size: 1.8rem;
-    font-weight: 800;
-    text-align: center;
-    border: 2px solid rgb(205, 205, 205);
+.letter {
+  height: 3.7rem;
+  width: 3.7rem;
+  margin: auto;
+  text-transform: uppercase;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-align: center;
+  border: 2px solid rgb(205, 205, 205);
 }
-.letter:focus{
-    caret-color: transparent;
-    outline: 2px solid black;
-    animation: keyEnter 0.2s;
+.letter:focus {
+  caret-color: transparent;
+  outline: 2px solid black;
+  animation: keyEnter 0.2s;
 }
-.letterOutline{
-    border: 2px solid rgb(137, 137, 137);
+.letterOutline {
+  border: 2px solid rgb(137, 137, 137);
 }
-.btn{
-    height: 3rem;
-    width: 3rem;
-    margin: auto;
-    background: rgb(241, 238, 238);
-    font-size: 1.8rem;
-    font-weight: 800;
-    text-align: center;
-    border: 2px solid rgb(205, 205, 205);
-    border-radius: 6px;
+.btn {
+  height: 3rem;
+  width: 3rem;
+  margin: auto;
+  background: rgb(241, 238, 238);
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-align: center;
+  border: 2px solid rgb(205, 205, 205);
+  border-radius: 6px;
 }
-.correct{
-    color: white;
-    border: 2px solid rgb(92, 185, 92);
-    background-color: rgb(92, 185, 92);
-    animation: flipScale 1s;
+.correct {
+  color: white;
+  border: 2px solid rgb(92, 185, 92);
+  background-color: rgb(92, 185, 92);
+  animation: flipScale 1s;
 }
-.present{
-    color: white;
-    border: 2px solid rgb(224, 203, 69);
-    background-color: rgb(224, 203, 69);
-    animation: flipScale 1s;
+.present {
+  color: white;
+  border: 2px solid rgb(224, 203, 69);
+  background-color: rgb(224, 203, 69);
+  animation: flipScale 1s;
 }
-.wrong{
-    color: white;
-    border: 2px solid rgb(120, 125, 130);
-    background-color: rgb(120, 125, 130);
-    animation: flipScale 1s;
+.wrong {
+  color: white;
+  border: 2px solid rgb(120, 125, 130);
+  background-color: rgb(120, 125, 130);
+  animation: flipScale 1s;
 }
-.wrongbtn{
-    box-shadow: inset 10px 10px 10px black;
+.wrongbtn {
+  box-shadow: inset 10px 10px 10px black;
 }
-.show{
-    display: none;
+.show {
+  display: none;
 }
-.opaque{
-    -webkit-filter: opacity(0.5);
-    filter: opacity(0.5);
+.opaque {
+  -webkit-filter: opacity(0.5);
+  filter: opacity(0.5);
 }
-.wans, .rans{
-    position: absolute;
-    left: 16%;
-    right: 18%;
+.wans,
+.rans {
+  position: absolute;
+  left: 16%;
+  right: 18%;
 }
 
 @keyframes keyEnter {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.08);}
-    100% {transform: scale(1);}
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-@keyframes flipScale{
-    0% {
-        transform: scale(1);
-        filter: opacity(0.5);
-    }
-    25% {
-        transform: scale(1.13) ;
-        filter: opacity(1);
-    }
-    67%{
-        transform: rotateX(45deg);
-    }
-    75% {
-        transform: scale(1.13);
-    }
-    100% {
-        transform: scale(1);
-    }
+@keyframes modal {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.a{
-    top: 35%;
-    right: 10%;
+@keyframes flipScale {
+  0% {
+    transform: scale(1);
+    filter: opacity(0.5);
+  }
+  25% {
+    transform: scale(1.13);
+    filter: opacity(1);
+  }
+  67% {
+    transform: rotateX(45deg);
+  }
+  75% {
+    transform: scale(1.13);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.d{
-    top: 35%;
-    left: 10%;
+.a {
+  top: 35%;
+  right: 10%;
 }
-@media only screen and (min-width: 768px){
-    .mobview{
-        display: none;
-    }
+.d {
+  top: 35%;
+  left: 10%;
+}
+@media only screen and (min-width: 768px) {
+  .mobview {
+    display: none;
+  }
 }
 
-@media only screen and (max-width: 768px){
-    .container{
-        display: none;
-    }
-    .blob,.codey{
-        display: block;
-        margin: auto;
-    }
-    .blob{
-        padding-top: 30%;
-    }
-    .codey{
-        margin: auto;
-        position: absolute;
-        top: 25%;
-        right: 25%;
-    }
-    .mobview{
-        margin: 15% auto;
-    }
-    .mobview p{
-        text-align: center;       
-        margin: 20% auto;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+@media only screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+  .blob,
+  .codey {
+    display: block;
+    margin: auto;
+  }
+  .blob {
+    padding-top: 30%;
+  }
+  .codey {
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+  }
+  .mobview {
+    margin: 15% auto;
+  }
+  .mobview p {
+    text-align: center;
+    margin: 20% auto;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 }
