@@ -5,13 +5,52 @@ padding: 0;
 body{
     background-color: rgb(252,252,252);
 }
+.meaning, .imgw, .cross, .crossy, .rightnav, .smiley, .about, .a, .d{
+    position: absolute;
+}
+.meaning{
+    display: block;
+    top: 10%;
+    left: 35%;
+    right: 28%;
+    background-color: white;
+    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
+    border-radius: 0px 0px 6px 6px;
+    z-index: 10;
+    width: 30%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: rgb(101, 105, 109);
+}
+p{
+    width: 70%;
+    margin: auto;
+    padding: auto;
+    margin-top: 5%;
+}
 .imgw{
     display: block;
-    border: 7px double black;
+    border: 4px solid rgb(48, 59, 49);
+    padding: 3px;
     border-radius: 50px;
-    position: absolute;
     top: 1.5%;
     left: 1.5%;
+}
+.cross, .rightnav, .crossy{
+    display: block;
+    top: 1.5%;
+    right: 1.5%;
+}
+.smiley{
+    display: block; 
+    top: -7%;
+    left: 33%;
+    right: 35%;
+}
+.intro{
+    margin-top: 13%;
 }
 header{
     display: block;
@@ -31,6 +70,16 @@ header{
     box-shadow: 0px 15px 15px -4px rgb(210,210,210);
     border-radius: 0px 0px 6px 6px;
     margin-bottom: 30px;
+}
+.about{
+    display: block;
+    top: 10%;
+    left: 28%;
+    right: 28%;
+    background-color: white;
+    box-shadow: 0px 15px 15px -4px rgb(210,210,210);
+    border-radius: 0px 0px 6px 6px;
+    z-index: 10;
 }
 table{
     height: auto;
@@ -88,6 +137,18 @@ table{
 .wrongbtn{
     box-shadow: inset 10px 10px 10px black;
 }
+.show{
+    display: none;
+}
+.opaque{
+    -webkit-filter: opacity(0.5);
+    filter: opacity(0.5);
+}
+.wans, .rans{
+    position: absolute;
+    left: 16%;
+    right: 18%;
+}
 
 @keyframes keyEnter {
     0% {transform: scale(1);}
@@ -112,9 +173,6 @@ table{
     100% {
         transform: scale(1);
     }
-}
-.a ,.d{
-    position: absolute;
 }
 .a{
     top: 35%;

@@ -1,5 +1,25 @@
 let allElement = document.querySelectorAll(".letter");
 let allBtns = document.querySelectorAll(".btn");
+let ques = document.querySelector(".rightnav");
+let about = document.querySelector(".about");
+let cross = document.querySelector(".cross");
+let container = document.querySelector(".container");
+let meaning = document.querySelector(".meaning");
+let crossy = document.querySelector(".crossy");
+let rans = document.querySelector(".rans");
+let wans = document.querySelector(".wans");
+let wordHead = document.querySelector(".wordHead");
+let meanText = document.querySelector(".meanText");
+
+// About (How to play)
+ques.addEventListener("click", function(){
+  about.classList.remove("show");
+  container.classList.add("opaque");
+});
+cross.addEventListener("click", function(){
+  about.classList.add("show");
+  container.classList.remove("opaque");
+});
 
 // List of Words
 let wordsList = ['HURRY','LOOSE','THEME','BLOCK','BRAVE','WORDS','HAIRS','KILLS','WHERE','THERE','COLOR','CODER','ABUSE','ADULT','AGENT','ANGER','APPLE','AWARD','BASIS','BEACH','BIRTH','BLOCK','BLOOD','BOARD','BRAIN','BREAD','BREAK','BROWN','BUYER','CAUSE','CHAIN',
@@ -33,9 +53,8 @@ fetch('config.json')
         'Content-Type': 'application/json'
       }
     }).then(response => {
-      const meaning = response.data.choices[0].text.trim();
-      console.log(response);
-      console.log(meaning);
+      const fmean = response.data.choices[0].text.trim();
+      console.log(fmean);
     }).catch(error => {
       console.log(error);
     });
@@ -43,6 +62,33 @@ fetch('config.json')
   .catch(err => {
     console.log(err);
   });
+
+ans(isCorrect) = function(){
+  if (isCorrect) {
+    console.log("rans.classList");
+    rans.classList.remove("show");
+  }
+  else {
+    console.log("wans.classList");
+    wans.classList.remove("show");
+  }
+  setTimeout(() => {
+    if(isCorrect){
+      rans.classList.add("show");
+    } else{
+      wans.classList.add("show");
+    }
+    wordHead.innerHTML = randWord;
+    meanText.innerHTML = fmean;
+    meaning.classList.remove("show");
+    container.classList.add("opaque");
+  }, 2200);
+  crossy.addEventListener("click", () => {
+    meaning.classList.add("show");
+    container.classList.remove("opaque");
+    window.reload();
+  });
+}
 
 for (let b of allElement) {
   b.addEventListener("keydown", function (ev) {
@@ -134,19 +180,13 @@ for (let b of allElement) {
           countTrue++;
         }
       }
-      // Going to next line
-      if ((countTrue < 5) & (this != allElement[29])) {
+      
+      if ((countTrue < 5) & (this != allElement[29])) { // Going to next line
         this.parentElement.parentElement.nextElementSibling.firstElementChild.firstElementChild.focus();
       } else if (countTrue == 5) {
-        setTimeout(() => {
-          window.alert("You Got It Right!!");
-          window.location.reload();
-        }, 1500);
+        ans(true);
       } else if ((countTrue < 5) & (this == allElement[29])) {
-        setTimeout(() => {
-          window.alert("" + randWord);
-          window.location.reload();
-        }, 1000);
+        ans(false);
       }
     }
     // Going to next input box after keydown
