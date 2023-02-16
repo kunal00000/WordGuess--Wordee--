@@ -1,3 +1,4 @@
+// require('dotenv').config();
 let allElement = document.querySelectorAll(".letter");
 let allBtns = document.querySelectorAll(".btn");
 let ques = document.querySelector(".rightnav");
@@ -10,6 +11,7 @@ let rans = document.querySelector(".rans");
 let wans = document.querySelector(".wans");
 let wordHead = document.querySelector(".wordHead");
 let meanText = document.querySelector(".meanText");
+
 
 // About (How to play)
 ques.addEventListener("click", function(){
@@ -37,11 +39,11 @@ allElement[0].focus(); // Focus on 1st box
 
 // fetch the meaning of the word (GPT-3 API)
 let fmean = "";
-fetch('config.json')
-  .then(response => response.json())
-  .then(data => {
-    const apiKey = data.API_KEY;
-    const apiUrl = data.API_URL;
+// fetch('config.json')
+//   .then(response => response.json())
+//   .then(data => {
+    const apiKey = process.env.API_KEY;
+    const apiUrl = process.env.API_URL;
 
     axios.post(apiUrl, {
       "prompt": `You are a english dictionary, answer this question in short. What is the meaning of ${randWord} ?`,
@@ -62,10 +64,10 @@ fetch('config.json')
     }).catch(error => {
       console.log(error);
     });
-  })
-  .catch(err => {
-    console.log(err);
-  });
+  // })
+  // .catch(err => {
+  //   console.log(err);
+  // });
 
 function ans(isCorrect){  
   setTimeout(() => {
@@ -203,3 +205,5 @@ for (let b of allElement) {
     }
   });
 }
+
+// 
