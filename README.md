@@ -1,4 +1,4 @@
-## **Wordee** 
+## **Wordee - Explore Vocabulory** 
 
 **Wordee** is a word guessing game. 
 The game is built using **JavaScript**, **HTML**, and **CSS**.
