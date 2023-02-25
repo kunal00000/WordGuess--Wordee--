@@ -4,6 +4,7 @@
 The game is built using **JavaScript**, **HTML**, and **CSS**.
 
 The game consists of a randomly generated word and the player has to guess the word by inputting letters. The game also has a feature that keeps track of the number of incorrect guesses (grey) the player has made. The game ends either when the player successfully guesses (green) the word or when the number of incorrect guesses reaches a certain limit.
+If you are not able to guess word correctly you would be prompted the correct word and it's meaning.
 
 ### Basic Interface
 <img width="1440" alt="Screenshot 2023-02-16 at 5 26 03 PM" src="https://user-images.githubusercontent.com/92316166/220566560-a7b6f38d-d46d-42cd-8bf0-ac12f074feee.png">
